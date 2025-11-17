@@ -1,0 +1,88 @@
+form {
+    background: #eef4ff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+label {
+    font-weight: bold;
+    display: inline-block;
+    width: 30%;
+    margin: 8px 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+input[list],
+select {
+    display: inline-block;
+    width: 60%;
+    padding: 5px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+}
+
+/* Arrière-plan renforcé */
+legend,
+input[type="file"] {
+    background: #d9e4ff;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+/* Checkbox et label qui suit : pas même design */
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+input[type="checkbox"] + label {
+    font-weight: normal;
+    display: inline-block;
+    width: auto;
+}
+
+/* Fieldset : bordure + arrondi */
+fieldset {
+    margin: 15px 0;
+    padding: 10px;
+    border: 2px solid #888;
+    border-radius: 8px;
+}
+
+/* Radios : label non gras */
+input[type="radio"] + label {
+    font-weight: normal;
+    margin-right: 15px;
+}
+
+/* Slider */
+input[type="range"] {
+    width: 60%;
+}
+
+/* Boutons */
+input[type="submit"],
+input[type="reset"] {
+    font-weight: bold;
+    border: 2px solid #555;
+    border-radius: 8px;
+    padding: 8px 15px;
+    margin-top: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+p{
+	font-size : 1.5rem;
+	color:red;
+}
+.abc{
+	font-size: 1rem;
+	color: black;
+}
