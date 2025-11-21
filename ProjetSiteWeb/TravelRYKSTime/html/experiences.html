@@ -11,8 +11,8 @@
         <h1>Expériences clients</h1>
         <nav class="main-nav">
             <a href="Page1.html">Accueil</a>
-            <a href="Page2.html">Réservation</a>
-            <a href="Page3.html">À propos de nous</a>
+            <a href="Page2.html">Destinations</a>
+            <a href="Page3.html">a propos de nous</a>
             <a href="experiences.html" class="active">Expériences clients</a>
             <a href="offres.html">Nos offres spéciales</a>
         </nav>
@@ -39,7 +39,13 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 GoFornite - Tous droits réservés</p>
+        <p>&copy; 2025 Travel Rycks Time - Tous droits réservés</p>
     </footer>
-</body>
-</html>
+
+    <script>
+    (function(){
+        const header = document.querySelector('header');
+        function onScrollHeader(){ if(window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled'); }
+        window.addEventListener('scroll', onScrollHeader, { passive: true }); onScrollHeader();
+    })();
+    </script>

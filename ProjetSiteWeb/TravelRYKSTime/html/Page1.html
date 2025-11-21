@@ -8,87 +8,81 @@
     <meta name="theme-color" content="#0d47a1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="home">
  
-    <a class="skip-link" href="#main">Aller au contenu</a>
 
     <header>
         <h1>Voyages</h1>
         <nav class="main-nav">
             <a href="Page1.html" class="active">Accueil</a>
-            <a href="Page2.html">Réservation</a>
-            <a href="Page3.html">À propos de nous</a>
+            <a href="Page2.html">Destinations</a>
+            <a href="Page3.html">a propos de nous</a>
             <a href="experiences.html">Expériences clients</a>
             <a href="offres.html">Nos offres spéciales</a>
         </nav>
     </header>
 
     <main id="main">
-        <div class="carousel fullwidth" id="carousel">
-            <div class="slides" id="slides">
-                <div class="slide"><img data-src="../images/Voyages futuriste a Rycks-Time.png" alt="Notre logo" class="lazy"></div>
-                <div class="slide"><img data-src="../images/paris1723.jpg" alt="Paris 1723" class="lazy"></div>
-                <div class="slide"><img data-src="../images/d.png" alt="Ville futuriste" class="lazy"></div>
-                <div class="slide"><img data-src="../images/paris2023.jpg" alt="Paris 2023" class="lazy"></div>
-            </div>
+        <section class="hero fullwidth" id="hero" aria-label="Hero">
+            <img id="hero-logo" class="hero-logo" src="../images/LogoRycks.png" alt="Logo Rycks">
+        </section>
 
-            
-
-            <div class="hero-overlay" aria-hidden="false">
-                <h2 class="hero-title">VOYAGEZ À TRAVERS LES SIÈCLES</h2>
-                <p class="hero-sub">300 ans d'histoire en un clin d'œil</p>
-            </div>
+        <div class="hero-below">
+            <h2 class="hero-title-below">VOYAGER À TRAVERS LES SIÈCLES</h2>
+            <p class="hero-sub-below">300 ans d'histoire en un clin d'œil</p>
         </div>
 
-        <section class="content-section">
-            <h2>Nos Époques Disponibles</h2>
-            <div class="destinations-grid">
-                <article class="destination-card">
-                    <h3>Paris 1723</h3>
-                    <p>L'âge d'or de la Régence française</p>
-                </article>
-                <article class="destination-card">
-                    <h3>Paris 1823</h3>
-                    <p>L'époque romantique</p>
-                </article>
-                <article class="destination-card">
-                    <h3>Paris 1923</h3>
-                    <p>Les années folles</p>
-                </article>
-            </div>
-        </section>
+        <!-- Destinations removed from homepage: they now appear only on Page2 (Destinations) -->
     </main>
 
     <footer>
-        <p>&copy; 2024 GoFornite - Tous droits réservés</p>
+        <p>&copy; 2025 Travel Rycks Time - Tous droits réservés</p>
     </footer>
 
     <script>
     (function(){
-        const slidesEl = document.getElementById('slides');
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        
-        function showSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            slidesEl.style.transform = `translateX(-${currentSlide * 100}%)`;
+        // Simplified hero: single fixed logo, keep header scroll behavior and compute accent from logo
+        const header = document.querySelector('header');
+        function onScrollHeader(){
+            if(window.scrollY === 0){
+                header.classList.add('at-top');
+                header.classList.remove('scrolled');
+            } else {
+                header.classList.remove('at-top');
+                header.classList.add('scrolled');
+            }
+        }
+        window.addEventListener('scroll', onScrollHeader, { passive: true });
+        onScrollHeader();
+
+        // compute average color from the logo file and apply accent
+        function computeAverageColorFromUrl(url, cb){
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.src = url;
+            img.onload = function(){
+                try{
+                    const w = 32, h = 32;
+                    const canvas = document.createElement('canvas');
+                    canvas.width = w; canvas.height = h;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, w, h);
+                    const data = ctx.getImageData(0,0,w,h).data;
+                    let r=0,g=0,b=0,count=0;
+                    for(let i=0;i<data.length;i+=4){ r+=data[i]; g+=data[i+1]; b+=data[i+2]; count++; }
+                    r = Math.round(r/count); g = Math.round(g/count); b = Math.round(b/count);
+                    cb && cb({r,g,b});
+                }catch(e){ cb && cb(null); }
+            };
+            img.onerror = function(){ cb && cb(null); };
         }
 
-
-        setInterval(showSlide, 3000);
-
-        const lazyImgs = Array.from(document.querySelectorAll('img.lazy'));
-        const io = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    io.unobserve(img);
-                }
-            });
+        computeAverageColorFromUrl('../images/LogoRycks.png', function(c){
+            if(!c) return;
+            const rgb = `${c.r}, ${c.g}, ${c.b}`;
+            document.documentElement.style.setProperty('--accent-rgb', rgb);
+            document.documentElement.style.setProperty('--nav-border-color', `rgba(${rgb}, 0.9)`);
         });
-        lazyImgs.forEach(img => io.observe(img));
     })();
     </script>
 </body>
