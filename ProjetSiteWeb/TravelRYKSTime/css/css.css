@@ -392,6 +392,42 @@ header.scrolled .main-nav a { color: #333 }
     transform: translateY(-5px);
 }
 
+/* Ensure text is readable over background images: add overlay and contrast */
+.destination-card{
+    position: relative; /* create stacking context for overlay */
+    color: #fff;
+}
+.destination-card::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    /* subtle gradient overlay: transparent at top -> darker at bottom */
+    background: linear-gradient(180deg, rgba(0,0,0,0.08) 10%, rgba(0,0,0,0.36) 60%, rgba(0,0,0,0.58) 100%);
+    z-index: 0;
+}
+.destination-card > *{ position: relative; z-index: 1; }
+.destination-card h3, .destination-card p{
+    color: #fff;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+.destination-card h3{ font-size: 1.15rem; margin-bottom: 6px; }
+.destination-card p{ font-size: 0.98rem; margin-bottom: 10px; }
+.btn-reveal{
+    background: rgba(124,77,255,0.92);
+    color: #fff;
+    border: none;
+}
+
+/* For very light/washed-out images, provide a stronger overlay option when .high-contrast is added */
+.destination-card.high-contrast::before{
+    background: linear-gradient(180deg, rgba(0,0,0,0.18) 10%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.72) 100%);
+}
+
+@media (max-width:700px){
+    .destination-card h3, .destination-card p{ text-shadow: 0 4px 12px rgba(0,0,0,0.6); }
+}
+
 .destinations-page h2 {
     text-align: center;
     margin: 40px 0;
