@@ -1,3 +1,38 @@
+.reveal-card{
+    position: relative;
+}
+.btn-reveal{
+    display: block;
+    margin: 18px auto 0 auto;
+    background: #7C4DFF;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(124,77,255,0.08);
+    transition: background 0.2s;
+}
+.btn-reveal:hover{
+    background: #5e35b1;
+}
+.reveal-content{
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s;
+    background: rgba(255,255,255,0.92);
+    border-radius: 8px;
+    margin-top: 12px;
+    padding: 0 12px;
+    box-shadow: 0 2px 12px rgba(124,77,255,0.07);
+}
+.reveal-card.open .reveal-content{
+    max-height: 400px;
+    opacity: 1;
+    padding: 16px 12px;
+}
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600;800&display=swap');
 
@@ -12,7 +47,7 @@ html,body{
 }
 
 :root{
-    --header-height: 64px; /* used to compute hero when header occupies space */
+    --header-height: 72px; /* reduced header height to remove large white rectangle */
 }
 
 
@@ -20,20 +55,26 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:18px 24px;
+    padding:12px 20px; /* reduce padding to make header visually smaller */
     background: #ffffff; /* plain white header everywhere */
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
+    /* position: fixed; */
+    /* top: 0; */
+    /* left: 0; */
+    /* right: 0; */
+    /* z-index: 50; */
     height: var(--header-height);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    border-bottom: 3px solid var(--nav-border-color, #0d47a1);
     transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.18s ease;
 }
 header h1{ margin:0; font-size:24px; letter-spacing:1px; font-family: 'Orbitron', Poppins, sans-serif; font-weight:700; color: #111 }
 
+/* Site logo in header (replaces header text) */
+.site-logo{ display:inline-block; line-height:1; }
+.site-logo img{ height: calc(var(--header-height) - 18px); width: auto; display:block; object-fit: contain; }
+
 /* Keep header simple and fixed white with light shadow */
-header{ box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+/* header{ box-shadow: 0 2px 6px rgba(0,0,0,0.06); } */
 
 .carousel{
     max-width:900px;
@@ -179,9 +220,9 @@ header.scrolled .main-nav a { color: #333 }
 .main-nav a{ color: #111; }
 .main-nav a:hover{ background: rgba(0,0,0,0.03); }
 
-/* Animated underline / color bar only on homepage */
-body.home .main-nav a{ color: #111; z-index:2; position: relative; }
-body.home .main-nav a::before{
+/* Animated underline / color bar for nav links (default neutral on non-home pages) */
+.main-nav a{ color: #111; z-index:2; position: relative; }
+.main-nav a::before{
     content: "";
     position: absolute;
     left: 50%;
@@ -189,23 +230,24 @@ body.home .main-nav a::before{
     transform: translateX(-50%) scaleX(0);
     transform-origin: center;
     height: 4px;
-    width: 64%;
+    width: 56%;
     border-radius: 4px;
     transition: transform 0.32s cubic-bezier(.2,.9,.2,1), background 0.32s;
     z-index: 1;
     pointer-events: none;
+    background: rgba(0,0,0,0.08); /* neutral thin bar on non-home pages */
 }
-body.home .main-nav a:hover{ transform: translateY(-2px); }
-body.home .main-nav a:hover::before,
-body.home .main-nav a.active::before{ transform: translateX(-50%) scaleX(1); }
-body.home .main-nav a.active{ transform: translateY(-3px); }
+.main-nav a:hover{ transform: translateY(-2px); }
+.main-nav a:hover::before,
+.main-nav a.active::before{ transform: translateX(-50%) scaleX(1); }
+.main-nav a.active{ transform: translateY(-3px); }
 
-/* Per-link accent gradients only on homepage */
-body.home .main-nav a:nth-child(1)::before{ background: linear-gradient(90deg,#7C4DFF,#A26BFF); }
-body.home .main-nav a:nth-child(2)::before{ background: linear-gradient(90deg,#00bfa5,#00e5ff); }
-body.home .main-nav a:nth-child(3)::before{ background: linear-gradient(90deg,#ff8a65,#ff5252); }
-body.home .main-nav a:nth-child(4)::before{ background: linear-gradient(90deg,#ff4081,#e040fb); }
-body.home .main-nav a:nth-child(5)::before{ background: linear-gradient(90deg,#66bb6a,#43a047); }
+/* Per-link accent gradients applied on all pages */
+.main-nav a:nth-child(1)::before{ background: linear-gradient(90deg,#7C4DFF,#A26BFF); }
+.main-nav a:nth-child(2)::before{ background: linear-gradient(90deg,#00bfa5,#00e5ff); }
+.main-nav a:nth-child(3)::before{ background: linear-gradient(90deg,#ff8a65,#ff5252); }
+.main-nav a:nth-child(4)::before{ background: linear-gradient(90deg,#ff4081,#e040fb); }
+.main-nav a:nth-child(5)::before{ background: linear-gradient(90deg,#66bb6a,#43a047); }
 
 @media (max-width:700px){
     body.home .main-nav a::before{ bottom:4px; height:3px; width:56%; }
@@ -218,6 +260,78 @@ body.home .main-nav a:nth-child(5)::before{ background: linear-gradient(90deg,#6
     margin: 40px auto;
     padding: 0 20px;
 }
+
+/* Profiles grid (homepage) */
+.profiles-section h2{ text-align:center; margin-bottom:18px; }
+.profiles-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 on first row, remaining 2 on second row */
+    gap: 28px;
+    margin-top: 10px;
+}
+
+/* Make cards larger inside profiles grid to match request */
+.profiles-grid .destination-card{
+    min-height: 460px;
+    padding: 22px;
+}
+
+/* Center the last row by wrapping the last two cards in a full-width row container */
+.profiles-row.centered{
+    grid-column: 1 / -1; /* span entire grid width */
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+.profiles-row.centered .destination-card{
+    flex: 0 1 44%; /* two cards side-by-side, centered */
+    max-width: 520px;
+}
+
+@media (max-width:1000px){
+    .profiles-row.centered{ gap: 20px; }
+    .profiles-row.centered .destination-card{ flex-basis: 48%; max-width: none; }
+}
+
+@media (max-width:600px){
+    .profiles-row.centered{ flex-direction: column; gap: 14px; }
+    .profiles-row.centered .destination-card{ flex: 1 1 auto; width: 100%; }
+}
+
+@media (max-width: 1000px){
+    .profiles-grid{ grid-template-columns: repeat(2, 1fr); }
+    .profiles-grid .destination-card{ min-height: 420px; }
+}
+
+@media (max-width: 600px){
+    .profiles-grid{ grid-template-columns: 1fr; }
+    .profiles-grid .destination-card{ min-height: 360px; }
+}
+.profile-card{
+    position: relative;
+    background: #eef4ff; /* match Ryls.css form background */
+    padding: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 160px;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 10px 24px rgba(12,20,33,0.06);
+    border: 1px solid #ddd;
+    background-size: cover;
+    background-position: center;
+}
+.profile-card .card-content{
+    background: rgba(255,255,255,0.86);
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+}
+.profile-card h3{ margin:0 0 6px; font-family: 'Orbitron', Poppins, sans-serif; font-size:1.05rem; }
+.profile-card p{ margin:0; color:#333; font-size:0.95rem; line-height:1.35; }
+
 
 /* Theme sections (voyages par thèmes) */
 .theme-section{
@@ -397,7 +511,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center bottom; /* align image bottom so it reaches nearer the title */
     display: block;
     margin: 0;
     border: none;
@@ -408,9 +522,94 @@ footer {
 
 .hero-below{
     text-align: center;
-    margin: 18px auto 28px;
+    margin: 6px auto 12px;
     max-width: 1200px;
     padding: 0 20px;
 }
+.content-section, main#main {
+    margin-top: 0;
+}
 .hero-below .hero-title-below{ color:#000; font-family:'Orbitron', Poppins, sans-serif; font-size:2.4rem; margin:0; }
 .hero-below .hero-sub-below{ color:#444; margin-top:8px; font-size:1.05rem }
+
+/* Petite animation colorée sous les liens de navigation en haut (uniquement sur la page d'accueil) */
+body.home .main-nav a{ position: relative; }
+body.home .main-nav a::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    height: 4px;
+    width: 56%;
+    border-radius: 4px;
+    transition: transform 0.32s cubic-bezier(.2,.9,.2,1), background 0.32s;
+    z-index: 1;
+    pointer-events: none;
+}
+body.home .main-nav a:hover{ transform: translateY(-2px); }
+body.home .main-nav a:hover::before,
+body.home .main-nav a.active::before{ transform: translateX(-50%) scaleX(1); }
+body.home .main-nav a.active{ transform: translateY(-3px); }
+
+/* Per-link accent gradients (homepage only) */
+
+/* Use a neutral header border on non-home pages, and the dynamic accent only on the homepage */
+header{ border-bottom: 3px solid rgba(0,0,0,0.06); }
+body.home header{ border-bottom: 3px solid var(--nav-border-color, #0d47a1); }
+
+/* On homepage, adapt nav link color to the computed accent from the logo */
+body.home .main-nav a{ color: rgb(var(--accent-rgb, 13,71,161)); }
+
+/* Agrandir légèrement le hero sur la page d'accueil pour réduire l'espace blanc */
+.hero.fullwidth{
+    /* augmenter légèrement la hauteur pour que l'image arrive plus près du titre, sans créer trop d'espace blanc */
+    min-height: calc(100vh - var(--header-height) + 40px);
+}
+
+/* Footer site-wide */
+.site-footer{
+    background: #f5f5f5;
+    padding: 18px 20px;
+    margin-top: 40px;
+}
+.site-footer .footer-inner{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+.footer-left .footer-names{ margin:0; text-align:left; color:#222; font-size:0.95rem; line-height:1.3 }
+.footer-center{ text-align:center }
+/* Neutral link color with animated colored underline on hover/focus (applies site-wide) */
+.footer-report-link{
+    color: #444;
+    font-weight:600;
+    text-decoration: none;
+    padding-bottom: 4px;
+    background-image: linear-gradient(90deg,#7C4DFF,#00e5ff);
+    background-repeat: no-repeat;
+    background-size: 0 3px; /* hidden by default */
+    background-position: 0 100%;
+    transition: background-size 260ms cubic-bezier(.2,.9,.2,1), color 160ms;
+    outline: none;
+}
+.footer-report-link:hover,
+.footer-report-link:focus,
+.footer-report-link:focus-visible{
+    background-size: 100% 3px; /* reveal colored underline */
+    color: #111;
+}
+.footer-right .footer-iut{ height:48px; width:auto; display:block }
+.footer-left{ display:flex; align-items:center }
+.footer-names{ margin:0; text-align:left; color:#222; font-size:0.95rem; line-height:1.3 }
+.site-footer .footer-bottom{ text-align:center; margin-top:8px; color:#666; font-size:0.9rem }
+
+@media (max-width:700px){
+    .site-footer .footer-inner{ flex-direction: column; gap:10px }
+    .footer-left .footer-names{ text-align:center }
+    .footer-right .footer-iut{ height:40px }
+}
