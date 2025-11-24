@@ -649,3 +649,333 @@ body.home .main-nav a{ color: rgb(var(--accent-rgb, 13,71,161)); }
     .footer-left .footer-names{ text-align:center }
     .footer-right .footer-iut{ height:40px }
 }
+
+/* Agency Section Styles */
+.agency-section {
+    background: linear-gradient(135deg, rgba(124,77,255,0.08), rgba(0,229,255,0.06));
+    border-radius: 12px;
+    padding: 40px 30px;
+    margin-top: 60px;
+    border: 2px solid rgba(124,77,255,0.15);
+}
+
+.agency-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 30px;
+    font-family: 'Orbitron', Poppins, sans-serif;
+}
+
+.agency-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.agency-info {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(12,20,33,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.agency-info h3 {
+    font-size: 1.6rem;
+    color: #111;
+    margin: 0 0 20px 0;
+    font-family: 'Orbitron', Poppins, sans-serif;
+}
+
+.agency-info p {
+    margin: 0 0 16px 0;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.agency-info strong {
+    color: #7C4DFF;
+    font-weight: 600;
+}
+
+.agency-map {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(12,20,33,0.1);
+}
+
+.agency-map iframe {
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .agency-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .agency-section {
+        padding: 30px 20px;
+    }
+    
+    .agency-info {
+        padding: 20px;
+    }
+    
+    .agency-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .agency-info h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .agency-section {
+        padding: 20px 15px;
+        margin-top: 40px;
+    }
+    
+    .agency-container {
+        gap: 20px;
+    }
+    
+    .agency-info {
+        padding: 15px;
+    }
+    
+    .agency-info p {
+        font-size: 0.95rem;
+    }
+    
+    .agency-map {
+        height: 300px;
+    }
+}
+
+/* Animations for Agency Section */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(12,20,33,0.08);
+    }
+    50% {
+        box-shadow: 0 8px 32px rgba(124,77,255,0.12);
+    }
+}
+
+.agency-section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.agency-section h2 {
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.agency-info {
+    animation: slideInLeft 0.8s ease-out 0.2s both, glow 3s ease-in-out 1s infinite;
+}
+
+.agency-map {
+    animation: slideInRight 0.8s ease-out 0.2s both;
+}
+
+.agency-info p {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.agency-info p:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.agency-info p:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.agency-info p:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+/* Order CTA button */
+.btn-order{
+    display: inline-block;
+    background: linear-gradient(90deg,#00796b,#00bfa5);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-weight:700;
+    font-size:1.15rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 14px 40px rgba(0,90,80,0.12);
+    transition: transform 160ms ease, box-shadow 220ms ease, opacity 160ms;
+}
+.btn-order:hover{ transform: translateY(-4px); box-shadow:0 20px 56px rgba(0,90,80,0.16); }
+
+/* Order form section and animated fields */
+.order-section{ max-width: 980px; margin: 28px auto 60px; padding: 0 20px; }
+.order-section h2{ text-align:center; font-size:1.9rem; margin-bottom:8px; }
+.order-form{ background: transparent; }
+.order-field{ opacity:0; transform: translateY(18px); transition: opacity 420ms ease, transform 420ms cubic-bezier(.2,.9,.2,1); margin-bottom:14px; }
+.order-field.visible{ opacity:1; transform: translateY(0); }
+.order-field label{ display:block; margin-bottom:6px; color:#111; font-weight:600; }
+.order-field input, .order-field textarea{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid #ddd; font-size:0.98rem; box-sizing:border-box; }
+
+@media (max-width:700px){
+    .btn-order{ padding: 10px 20px; font-size:0.98rem }
+    .order-field input, .order-field textarea{ padding:8px 10px }
+}
+
+/* Hover effects for interactivity */
+.agency-info {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.agency-info:hover {
+    transform: translateY(-5px);
+}
+
+.agency-info strong {
+    transition: color 0.3s ease;
+}
+
+.agency-info:hover strong {
+    color: #5e35b1;
+}
+
+.agency-map iframe {
+    transition: filter 0.3s ease;
+}
+
+.agency-map:hover iframe {
+    filter: brightness(1.05);
+}
+}
+
+/* Select button for destination / accompagnateur cards (match .btn-reveal exactly) */
+.select-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 18px auto 0 auto; /* match .btn-reveal spacing */
+    /* blue-green gradient to match images */
+    background: linear-gradient(90deg,#00bfa5,#00e5ff);
+    color: #042026; /* dark teal for contrast */
+    border: none;
+    padding: 6px 12px; /* more compact */
+    border-radius: 8px;
+    font-size: 0.86rem !important; /* smaller per user request */
+    font-weight: 700;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial !important;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(3,60,60,0.10);
+    transition: transform 120ms ease, opacity 120ms ease, box-shadow 180ms ease, background 120ms ease;
+    z-index: 2; /* keep above overlays */
+
+    /* hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+}
+
+.destination-card:hover .select-btn{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.select-btn:hover{ transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,80,80,0.14); }
+
+/* icon inside button */
+.select-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background: transparent; /* hide the circle when not selected */
+    color: #00695c;
+    font-weight:800;
+    font-size:11px;
+    line-height:1;
+    text-align:center;
+    margin-left:6px; /* place to the right of the label */
+}
+
+.select-btn.selected .select-icon{
+    background: #042026;
+    color: #00e5ff;
+    transform: scale(1);
+    width:18px; height:18px; font-size:12px;
+}
+
+.select-btn.selected{
+    background: linear-gradient(90deg,#00796b,#00bfa5);
+    color: #fff;
+    box-shadow: 0 16px 48px rgba(0,90,80,0.18);
+}
+
+/* Ensure the button sits inside the card layout */
+.destination-card{ overflow: hidden; }
+
+/* More specific override to ensure font + size apply even if cached or inherited */
+.destination-card .select-btn{
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial !important;
+    font-size: 0.95rem !important;
+    position: relative !important;
+    z-index: 8 !important;
+    padding: 6px 12px !important;
+}
+
+@media (max-width:700px){
+    .select-btn{ padding: 6px 10px; font-size:0.78rem }
+    .destination-card .select-btn{ font-size:0.82rem !important; padding:6px 8px !important }
+}
