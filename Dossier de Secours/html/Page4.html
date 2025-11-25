@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Travel Rycks-Time</title>
+    <link rel="icon" href="../images/LogoRycks.png" type="image/png">
+    <link rel="stylesheet" href="../css/Ryls.css">
+</head>
+<body>
+
+<article>
+
+    <form action="https://webdev.iut-orsay.fr/r102/tests/formulaire/test_formulaire.php"
+          method="post" enctype="multipart/form-data">
+
+        <!-- Nom du voyageur -->
+        <label for="u_name">Nom du voyageur</label>
+        <input type="text" id="u_name" name="nom_voyageur" placeholder="Nom de famille" required>
+
+        <!-- Prénom -->
+        <label for="u_firstname">Prénom du voyageur</label>
+        <input type="text" id="u_firstname" name="prenom_voyageur" placeholder="Prénom" required>
+
+        <!-- Mot de passe temporel -->
+        <label for="u_pass">Clé temporelle</label>
+        <input type="password" id="u_pass" name="cle_temporelle" required>
+
+        <!-- Code de réservation temporel -->
+        <label for="u_save">Code de réservation</label>
+        <input type="text" id="u_save" name="code_reservation"
+               pattern="[A-Z]{2}[0-9]{3}[a-z]{2}[0-9]{3}\"
+			   required
+               placeholder="Ex : VR302tp910">
+
+        <!-- Époque désirée -->
+        <label for="u_type">Époque de destination</label>
+        <input list="epoques" id="u_type" name="epoque_destination" placeholder="Choisir une époque" required>
+        <datalist id="epoques">
+            <option value="Préhistoire (50 000 av. J.-C.)">
+            <option value="Égypte antique (-2000)">
+            <option value="Empire romain (100)">
+            <option value="Renaissance (1500)">
+            <option value="Révolution française (1789)">
+            <option value="XXe siècle (années 20)">
+            <option value="Futur proche (2100)">
+            <option value="Futur lointain (4000)">
+            <option value="Fin des temps (?)">
+        </datalist>
+
+        <!-- Date de départ temporel -->
+        <label for="u_date">Date de départ temporel</label>
+        <input type="date" id="u_date" name="date_depart" required>
+
+        <!-- Version de l’univers -->
+        <label for="u_version">Version de la ligne temporelle</label>
+        <input type="number" id="u_version" name="version_timeline" min="1" max="20" required>
+
+        <!-- Documents nécessaires -->
+        <label for="u_file">Carte d'identité chronologique</label>
+        <input type="file" id="u_file" name="fichier_identite"
+               accept=".pdf,.csv" required>
+
+        <!-- Confirmation (checkbox d'abord) -->
+        <input type="checkbox" id="u_confirm" name="confirmation" required>
+        <label for="u_confirm">Je certifie que ce voyage n’altérera pas la continuité historique</label>
+
+        <!-- Urgence -->
+        <fieldset>
+            <legend>Type de voyage</legend>
+
+            <input type="radio" id="u_top" name="urgence" value="cataclysme imminent" required>
+            <label for="u_top">Guidé</label>
+
+            <input type="radio" id="u_ok" name="urgence" value="voyage planifié" required>
+            <label for="u_ok">Nostalgique</label>
+
+            <input type="radio" id="u_pro" name="urgence" value="loisir temporel" required>
+            <label for="u_pro">Aventurier</label>
+        </fieldset>
+
+        <!-- Confiance dans la stabilité temporelle -->
+        <label for="u_conf">Niveau de condiance (1-100):</label>
+        <input type="range" id="u_conf" name="stabilite" min="1" max="100" required>
+
+        <!-- Choix final -->
+       <label for="u">Commentaire/question à nous transmettre</label>
+        <input type="text" id="u" name="nom_voyageur" placeholder="Ecrire" required>
+		<p> * ATTENTION !!!!!!!!!!!!!!!</p>
+			<p>Tu voyages dans le passé et empêches ton grand-père de rencontrer ta grand-mère.</p>
+			<p>➡️ Donc tu ne nais jamais.</p>
+			<p>➡️ Mais si tu n’es jamais né… tu ne peux pas retourner dans le passé pour les empêcher de se rencontrer.</p>
+			<p class="abc">Si vous interagissez dans le passé, et que des répercussions arrivent dans notre présent, une lourde sanction vous sera infligé.</p>
+			<p class="abc">Consulter les différentes assurences</p>
+		
+        <!-- Champ caché -->
+        <input type="hidden" name="je_te_connais" value="ton_numero_est_24254" required>
+
+        <!-- Boutons -->
+        <input type="submit" value="Réserver le voyage" required>
+        <input type="reset" value="Effacer">
+
+    </form>
+
+</article>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p class="footer-names">Ahmed Ziat<br>Jordan Bongo Luemba<br>Dylan Sundari</p>
+            </div>
+            <div class="footer-center">
+                <a class="footer-report-link" href="rapport.html">Rapport du projet</a>
+            </div>
+            <div class="footer-right">
+                <img class="footer-iut" src="../images/Logo IUT.jpg" alt="Logo IUT">
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Travel Rycks Time - Tous droits réservés</p></div>
+    </footer>
+
+</body>
+</html>
