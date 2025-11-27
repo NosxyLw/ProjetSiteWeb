@@ -5,6 +5,7 @@
     <title>Votre réservation — Travel Rycks Time</title>
     <link rel="icon" href="../images/LogoRycks.png" type="image/png">
     <link rel="stylesheet" href="../css/css.css">
+    <link rel="stylesheet" href="../css/form.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -16,7 +17,7 @@
         <nav class="main-nav">
             <a href="Page1.html">Accueil</a>
             <a href="Page2.html">Réservations</a>
-            <a href="Page3.html">A propos de nous</a>
+            <a href="Page3.html">À propos de nous</a>
             <a href="experiences.html">Expériences clients</a>
             <a href="offres.html">Nos offres spéciales</a>
         </nav>
@@ -48,7 +49,6 @@
                     <input id="phone" name="phone" type="tel">
                 </div>
 
-
                 <div class="order-field" data-order="4">
                     <label for="destination">Destination souhaitée</label>
                     <input id="destination" name="destination" type="text" required>
@@ -67,8 +67,6 @@
                     <label for="date_arrivee">Date d'arrivée</label>
                     <input id="date_arrivee" name="date_arrivee" type="date">
                 </div>
-
-
 
                 <div class="order-field" data-order="7" style="text-align:center;">
                     <button type="submit" class="btn-order">Valider ma réservation</button>
@@ -92,86 +90,6 @@
         <div class="footer-bottom"><p>&copy; 2025 Travel Rycks Time - Tous droits réservés</p></div>
     </footer>
 
-    <script>
-    (function(){
-        // Staggered appearance for order fields
-        const fields = Array.from(document.querySelectorAll('.order-field'));
-        function revealFields(){
-            fields.forEach(function(f, i){
-                setTimeout(function(){ f.classList.add('visible'); }, i * 220);
-            });
-        }
-
-        if(document.readyState === 'loading'){
-            document.addEventListener('DOMContentLoaded', revealFields);
-        } else {
-            revealFields();
-        }
-
-        // Préremplissage des champs depuis l'URL
-        function getParam(name) {
-            const url = new URL(window.location.href);
-            return url.searchParams.get(name) || '';
-        }
-        var destField = document.getElementById('destination');
-        var accField = document.getElementById('accompagnateur');
-        var destValue = getParam('destination');
-        var accValue = getParam('accompagnateur');
-        if(destField && destValue) destField.value = destValue;
-        if(accField && accValue) accField.value = accValue;
-
-        // Message de confirmation stylé au centre de l'écran en récupérant la couleur du bouton
-        const form = document.getElementById('orderForm');
-        const confirmation = document.getElementById('confirmation-message');
-        form.addEventListener('submit', function(e){
-            e.preventDefault();
-            // contenu
-            confirmation.innerHTML = '<div style="font-size:1.4em;font-weight:800;margin-bottom:8px;">Merci !</div><div style="font-size:1.05rem;">Votre réservation a été validée.</div>';
-
-            // récupérer le style du bouton .btn-order pour utiliser la même couleur
-            var btn = document.querySelector('.btn-order');
-            var btnBg = null;
-            if(btn) {
-                btnBg = window.getComputedStyle(btn).background;
-            }
-
-            // styles pour centrer au milieu de l'écran
-            confirmation.style.position = 'fixed';
-            confirmation.style.left = '50%';
-            confirmation.style.top = '50%';
-            confirmation.style.transform = 'translate(-50%, -50%)';
-            confirmation.style.zIndex = '9999';
-            confirmation.style.display = 'block';
-            confirmation.style.minWidth = '420px';
-            confirmation.style.maxWidth = '88%';
-            confirmation.style.padding = '22px 32px';
-            confirmation.style.borderRadius = '14px';
-            confirmation.style.textAlign = 'center';
-            confirmation.style.boxShadow = '0 22px 64px rgba(0,0,0,0.28)';
-            confirmation.style.color = '#fff';
-            confirmation.style.opacity = '0';
-            confirmation.style.transition = 'opacity 300ms ease, transform 260ms ease';
-
-            // appliquer la même couleur / dégradé que le bouton (si récupéré)
-            if(btnBg) {
-                confirmation.style.background = btnBg;
-            } else {
-                confirmation.style.background = 'linear-gradient(90deg,#00796b,#00bfa5)';
-            }
-
-            // montrer et masquer après quelques secondes
-            // entrance animation
-            confirmation.style.transform = 'translate(-50%, -50%) scale(1.02)';
-            requestAnimationFrame(function(){ confirmation.style.opacity = '1'; confirmation.style.transform = 'translate(-50%, -50%) scale(1)'; });
-            // garder visible plus longtemps (4.5s)
-            setTimeout(function(){
-                confirmation.style.opacity = '0';
-                setTimeout(function(){ confirmation.style.display = 'none'; }, 360);
-            }, 4500);
-
-            form.reset();
-        });
-    })();
-    </script>
+    <script src="../js/commande.js"></script>
 </body>
 </html>

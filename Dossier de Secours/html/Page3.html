@@ -5,95 +5,16 @@
     <title>Travel Rycks-Time</title>
     <link rel="icon" href="../images/LogoRycks.png" type="image/png">
     <link rel="stylesheet" href="../css/css.css">
+    <link rel="stylesheet" href="../css/page3.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;600&display=swap');
-    /* Styles spécifiques pour la page A propos */
-    .about-grid{
-        display: grid;
-        /* deux colonnes égales : image occupe la moitié droite du conteneur centré */
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-        align-items: stretch;
-        max-width: 1200px; /* conteneur centré */
-        margin: 28px auto;
-        padding: 0 20px;
-        position: relative;
-        width: 100%;
-        overflow: visible;
-    }
-    .about-hero{
-        /* start at center of viewport and extend beyond right edge so it "depasse" la zone du bouton */
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        right: -160px; /* extend 160px beyond the container */
-        min-height: 520px;
-        background-image: url('../images/imglogo.png');
-        /* show whole logo without heavy zoom */
-        background-size: contain;
-        background-position: center right;
-        background-repeat: no-repeat;
-        border-radius: 0 12px 12px 0; /* rounded on right column */
-        z-index: 0;
-    }
-    .about-hero::after{
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.42));
-    }
-    .about-hero-inner{
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        color: #fff;
-        padding: 24px;
-    }
-    .about-logo{ max-width: 220px; display:block; margin: 0 auto 12px; }
-    .about-slogan{ font-family: 'Playfair Display', 'Orbitron', Poppins, serif; font-size:1.25rem; font-weight:700; letter-spacing:0.6px; }
-
-    .about-content{ display:flex; flex-direction:column; gap:16px; position:relative; z-index:2; padding-left:20px; padding-right:20px; }
-    .about-paragraph{ padding:18px; border-radius:10px; color:#111; background:#f7fff8; font-family: 'Montserrat', Poppins, Arial, sans-serif; transition: transform 260ms ease, box-shadow 260ms ease; transform: translateY(0); }
-    .about-paragraph.alt{ background: linear-gradient(90deg, rgba(124,77,255,0.06), rgba(0,229,255,0.04)); color:#111; }
-    .about-paragraph.center{ text-align:center; background:#fff7ff; }
-    .about-paragraph:hover{ transform: translateY(-6px); box-shadow: 0 16px 42px rgba(12,20,33,0.08); }
-
-     /* List styling for transformed paragraphs: use standard bullet points */
-     .about-list{ list-style: disc; margin: 8px 0 0 1.1rem; padding: 0; }
-     .about-list li{ padding: 8px 0; line-height: 1.6; color: #0b2b26; }
-
-    .facts{
-        margin-top:10px;
-        display:grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap:12px;
-    }
-    /* Special color for the 'Notre vision' block */
-    .about-paragraph.vision{ background: linear-gradient(90deg, rgba(0,121,107,0.06), rgba(0,191,165,0.03)); color: #064d42; }
-    .about-paragraph.vision h3{ color: #05382f; }
-    .fact{ background:#ffffff; padding:12px 14px; border-radius:8px; box-shadow:0 6px 18px rgba(3,30,30,0.04); }
-    .fact strong{ display:block; font-size:0.95rem; color:#00796b; }
-    .fact span{ display:block; font-weight:600; margin-top:6px; }
-
-    @media (max-width:900px){
-        .about-grid{ grid-template-columns: 1fr; }
-        /* restore normal flow on small screens */
-        .about-hero{ position: static; left: auto; right: auto; min-height:300px; border-radius:12px; margin-top:18px; }
-        .about-logo{ max-width:160px; }
-        .facts{ grid-template-columns: 1fr 1fr; }
-        .about-content{ padding:0; max-width:100%; }
-    }
-    </style>
 </head>
 <body>
     <header>
         <a href="Page1.html" class="site-logo" aria-label="Accueil">
             <img src="../images/LogoNaviguation.png" alt="Travel Rycks Time">
         </a>
-            <nav class="main-nav">
+        <nav class="main-nav">
             <a href="Page1.html">Accueil</a>
             <a href="Page2.html">Réservations</a>
             <a href="Page3.html" class="active">À propos de nous</a>
@@ -110,8 +31,8 @@
             <div class="about-grid">
                 <div class="about-content">
                     <div class="about-paragraph">
-                        <h3 style="margin-top:0;">Une agence née pour révolutionner la manière de voyager</h3>
-                        <ul class="about-list single-dash">
+                        <h3>Une agence née pour révolutionner la manière de voyager</h3>
+                        <ul class="about-list">
                             <li>Fondée en 2025.</li>
                             <li>Située au 123 Rue de la Paix, 75001 Paris.</li>
                             <li>Pôle d'innovation dédié au voyage futuriste.</li>
@@ -119,8 +40,8 @@
                         </ul>
                     </div>
 
-                    <div class="about-paragraph alt" style="text-align:left;">
-                        <h3 style="margin-top:0;">Un concept unique au croisement de la technologie et de l’aventure</h3>
+                    <div class="about-paragraph alt">
+                        <h3>Un concept unique au croisement de la technologie et de l'aventure</h3>
                         <ul class="about-list">
                             <li>Concept : expéditions temporelles encadrées, au-delà des destinations classiques.</li>
                             <li>Utilisation de technologies avancées de stabilisation temporelle.</li>
@@ -130,19 +51,16 @@
                     </div>
 
                     <div class="about-paragraph center">
-                        <h3 style="margin-top:0;">Un accompagnement humain au cœur de l'expérience</h3>
+                        <h3>Un accompagnement humain au cœur de l'expérience</h3>
                         <ul class="about-list">
-                            <li>Le trio d'experts spécialisé : 
-                            Ahmed Ziat, 
-                            Jordan Bongo-Luemba, 
-                            Dylan Sundari</li>
+                            <li>Le trio d'experts spécialisé : Ahmed Ziat, Jordan Bongo-Luemba, Dylan Sundari</li>
                             <li>Préparation complète avant le départ et assistance pendant l'expédition.</li>
                             <li>Gestion des imprévus et accompagnement personnalisé pour chaque voyageur.</li>
                         </ul>
                     </div>
 
                     <div class="about-paragraph center vision">
-                        <h3 style="margin-top:0;">Notre vision</h3>
+                        <h3>Notre vision</h3>
                         <ul class="about-list">
                             <li>Siège parisien et centre de recherche dédiés à la sécurité et aux protocoles temporels.</li>
                             <li>Contrôles techniques complets pour chaque mission, de l'ouverture du portail au retour.</li>
@@ -161,8 +79,6 @@
 
                 <div class="about-hero" aria-hidden="true" role="img" aria-label="Visuel de l'agence"></div>
             </div>
-
-            <!-- 'Notre vision' moved into the left column; bottom paragraph removed as requested -->
         </section>
     </main>
 
@@ -181,13 +97,6 @@
         <div class="footer-bottom"><p>&copy; 2025 Travel Rycks Time - Tous droits réservés</p></div>
     </footer>
 
-    <script>
-    (function(){
-        const header = document.querySelector('header');
-        function onScrollHeader(){ if(window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled'); }
-        window.addEventListener('scroll', onScrollHeader, { passive: true }); onScrollHeader();
-    })();
-    </script>
-
+    <script src="../js/page3.js"></script>
 </body>
 </html>
