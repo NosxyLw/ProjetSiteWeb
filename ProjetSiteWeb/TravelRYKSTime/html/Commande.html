@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Votre réservation — Travel Rycks Time</title>
+    <link rel="icon" href="../images/LogoRycks.png" type="image/png">
+    <link rel="stylesheet" href="../css/css.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="Page1.html" class="site-logo" aria-label="Accueil">
+            <img src="../images/LogoNaviguation.png" alt="Travel Rycks Time">
+        </a>
+        <nav class="main-nav">
+            <a href="Page1.html">Accueil</a>
+            <a href="Page2.html">Réservations</a>
+            <a href="Page3.html">À propos de nous</a>
+            <a href="experiences.html">Expériences clients</a>
+            <a href="offres.html">Nos offres spéciales</a>
+        </nav>
+    </header>
+
+    <main id="main" class="destinations-page">
+        <section class="order-section content-section">
+            <h2>Votre réservation</h2>
+            <div class="title-accent"></div>
+
+            <div id="confirmation-message" style="display:none;" role="status" aria-live="polite"></div>
+            <form class="order-form" id="orderForm" style="max-width:800px;margin:18px auto;">
+                <div class="order-field" data-order="1">
+                    <label for="lastname">Nom</label>
+                    <input id="lastname" name="lastname" type="text" required>
+                </div>
+                <div class="order-field" data-order="1b">
+                    <label for="firstname">Prénom</label>
+                    <input id="firstname" name="firstname" type="text" required>
+                </div>
+
+                <div class="order-field" data-order="2">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required>
+                </div>
+
+                <div class="order-field" data-order="3">
+                    <label for="phone">Téléphone</label>
+                    <input id="phone" name="phone" type="tel">
+                </div>
+
+                <div class="order-field" data-order="4">
+                    <label for="destination">Destination souhaitée</label>
+                    <input id="destination" name="destination" type="text" required>
+                </div>
+
+                <div class="order-field" data-order="4b">
+                    <label for="accompagnateur">Accompagnateur choisi</label>
+                    <input id="accompagnateur" name="accompagnateur" type="text">
+                </div>
+
+                <div class="order-field" data-order="5">
+                    <label for="date_depart">Date de départ</label>
+                    <input id="date_depart" name="date_depart" type="date">
+                </div>
+                <div class="order-field" data-order="5b">
+                    <label for="date_arrivee">Date d'arrivée</label>
+                    <input id="date_arrivee" name="date_arrivee" type="date">
+                </div>
+
+                <div class="order-field" data-order="7" style="text-align:center;">
+                    <button type="submit" class="btn-order">Valider ma réservation</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p class="footer-names">Ahmed Ziat<br>Jordan Bongo Luemba<br>Dylan Sundari</p>
+            </div>
+            <div class="footer-center">
+                <a class="footer-report-link" href="rapport.html">Rapport du projet</a>
+            </div>
+            <div class="footer-right">
+                <img class="footer-iut" src="../images/Logo IUT.jpg" alt="Logo IUT">
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Travel Rycks Time - Tous droits réservés</p></div>
+    </footer>
+
+    <script src="../js/commande.js"></script>
+</body>
+</html>

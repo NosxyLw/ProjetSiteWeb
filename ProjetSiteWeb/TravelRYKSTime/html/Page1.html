@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="home">
- 
-
     <header>
         <a href="Page1.html" class="site-logo" aria-label="Accueil">
             <img src="../images/LogoNaviguation.png" alt="Travel Rycks Time">
@@ -19,7 +17,7 @@
         <nav class="main-nav">
             <a href="Page1.html" class="active">Accueil</a>
             <a href="Page2.html">Réservations</a>
-            <a href="Page3.html">a propos de nous</a>
+            <a href="Page3.html">À propos de nous</a>
             <a href="experiences.html">Expériences clients</a>
             <a href="offres.html">Nos offres spéciales</a>
         </nav>
@@ -35,12 +33,11 @@
             <p class="hero-sub-below">300 ans d'histoire en un clin d'œil</p>
         </div>
 
-        <!-- Profils de voyageurs (cartes) -->
         <section class="profiles-section content-section">
             <h2>Profils de voyageurs</h2>
             <div class="profiles-grid">
                 <article class="destination-card reveal-card" style="background-image: url('../images/LesPassionéesHistoire.png'); background-size:cover; background-position:center;">
-                    <h3>Les Passionnés d’Histoire</h3>
+                    <h3>Les Passionnés d'Histoire</h3>
                     <p>Vivre les grands événements et marcher là où tout a commencé.</p>
                     <button class="btn-reveal" type="button">En savoir plus</button>
                     <div class="reveal-content">
@@ -58,9 +55,9 @@ Compréhension approfondie grâce à un accompagnement spécialisé.<br>
                     <button class="btn-reveal" type="button">En savoir plus</button>
                     <div class="reveal-content">
                         <p><strong>Les Aventuriers des Grandes Épopées</strong><br><br>
-Pour les esprits intrépides en quête d’expériences intenses.<br><br>
+Pour les esprits intrépides en quête d'expériences intenses.<br><br>
 Participation aux périples légendaires et traversée de territoires sauvages.<br><br>
-Suivi des pas des grands explorateurs de l’histoire.<br><br>
+Suivi des pas des grands explorateurs de l'histoire.<br><br>
 Immersion physique et culturelle avec encadrement complet pour la sécurité.<br>
 <strong>Durée :</strong> 5 à 10 jours — <strong>À partir de 1 650 €</strong></p>
                     </div>
@@ -75,22 +72,22 @@ Immersion physique et culturelle avec encadrement complet pour la sécurité.<br
 Pour ceux qui souhaitent comprendre la stratégie et les tactiques militaires.<br><br>
 Analyse des batailles emblématiques dans un environnement totalement sécurisé.<br><br>
 Observation des prises de décision et du déploiement des armées.<br><br>
-Explications détaillées d’un expert pour saisir les enjeux réels.<br>
+Explications détaillées d'un expert pour saisir les enjeux réels.<br>
 <strong>Durée :</strong> 1 à 3 jours — <strong>À partir de 980 €</strong></p>
                     </div>
                 </article>
 
                 <div class="profiles-row centered">
-                    <article class="destination-card reveal-card" style="background-image: url('../images/Expérimentateurs du Quotidien d’Autrefois.png'); background-size:cover; background-position:center;">
-                        <h3>Expérimentateurs du Quotidien d’Autrefois</h3>
+                    <article class="destination-card reveal-card" style="background-image: url('../images/Expérimentateurs du Quotidien d'Autrefois.png'); background-size:cover; background-position:center;">
+                        <h3>Expérimentateurs du Quotidien d'Autrefois</h3>
                         <p>Vivre une journée normale dans une autre époque pour une immersion totale.</p>
                         <button class="btn-reveal" type="button">En savoir plus</button>
                         <div class="reveal-content">
-                            <p><strong>Les Expérimentateurs du Quotidien d’Autrefois</strong><br><br>
+                            <p><strong>Les Expérimentateurs du Quotidien d'Autrefois</strong><br><br>
 Pour ceux qui cherchent une immersion simple et authentique.<br><br>
-Une journée vécue comme un habitant d’une époque passée.<br><br>
+Une journée vécue comme un habitant d'une époque passée.<br><br>
 Découverte du rythme réel : travaux, repas, coutumes, échanges.<br><br>
-Compréhension intime de la vie d’autrefois, sans mise en scène.<br>
+Compréhension intime de la vie d'autrefois, sans mise en scène.<br>
 <strong>Durée :</strong> 24 heures — <strong>À partir de 650 €</strong></p>
                         </div>
                     </article>
@@ -104,15 +101,13 @@ Compréhension intime de la vie d’autrefois, sans mise en scène.<br>
 Pour les passionnés de technologies et de sociétés futuristes.<br><br>
 Découverte des cités avancées et des innovations de demain.<br><br>
 Observation des systèmes, modes de vie et environnements du futur.<br><br>
-Explications claires pour comprendre l’évolution du monde à venir.<br>
+Explications claires pour comprendre l'évolution du monde à venir.<br>
 <strong>Durée :</strong> 1 à 4 jours — <strong>À partir de 1 300 €</strong></p>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
-
-        <!-- Destinations removed from homepage: they now appear only on Page2 (Destinations) -->
     </main>
 
     <footer class="site-footer">
@@ -130,59 +125,6 @@ Explications claires pour comprendre l’évolution du monde à venir.<br>
         <div class="footer-bottom"><p>&copy; 2025 Travel Rycks Time - Tous droits réservés</p></div>
     </footer>
 
-    <script>
-    (function(){
-        // Simplified hero: single fixed logo, keep header scroll behavior and compute accent from logo
-        const header = document.querySelector('header');
-        function onScrollHeader(){
-            if(window.scrollY === 0){
-                header.classList.add('at-top');
-                header.classList.remove('scrolled');
-            } else {
-                header.classList.remove('at-top');
-                header.classList.add('scrolled');
-            }
-        }
-        window.addEventListener('scroll', onScrollHeader, { passive: true });
-        onScrollHeader();
-
-        // compute average color from the logo file and apply accent
-        function computeAverageColorFromUrl(url, cb){
-            const img = new Image();
-            img.crossOrigin = 'anonymous';
-            img.src = url;
-            img.onload = function(){
-                try{
-                    const w = 32, h = 32;
-                    const canvas = document.createElement('canvas');
-                    canvas.width = w; canvas.height = h;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0, w, h);
-                    const data = ctx.getImageData(0,0,w,h).data;
-                    let r=0,g=0,b=0,count=0;
-                    for(let i=0;i<data.length;i+=4){ r+=data[i]; g+=data[i+1]; b+=data[i+2]; count++; }
-                    r = Math.round(r/count); g = Math.round(g/count); b = Math.round(b/count);
-                    cb && cb({r,g,b});
-                }catch(e){ cb && cb(null); }
-            };
-            img.onerror = function(){ cb && cb(null); };
-        }
-
-        computeAverageColorFromUrl('../images/LogoRycks.png', function(c){
-            if(!c) return;
-            const rgb = `${c.r}, ${c.g}, ${c.b}`;
-            document.documentElement.style.setProperty('--accent-rgb', rgb);
-            document.documentElement.style.setProperty('--nav-border-color', `rgba(${rgb}, 0.9)`);
-        });
-
-        // Animation reveal for bottom cards
-        document.querySelectorAll('.reveal-card .btn-reveal').forEach(function(btn){
-            btn.addEventListener('click', function(){
-                const card = btn.closest('.reveal-card');
-                card.classList.toggle('open');
-            });
-        });
-    })();
-    </script>
+    <script src="../js/page1.js"></script>
 </body>
 </html>

@@ -5,6 +5,8 @@
     <title>Travel Rycks-Time</title>
     <link rel="icon" href="../images/LogoRycks.png" type="image/png">
     <link rel="stylesheet" href="../css/css.css">
+    <link rel="stylesheet" href="../css/page3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
@@ -15,7 +17,7 @@
         <nav class="main-nav">
             <a href="Page1.html">Accueil</a>
             <a href="Page2.html">Réservations</a>
-            <a href="Page3.html" class="active">A propos de nous</a>
+            <a href="Page3.html" class="active">À propos de nous</a>
             <a href="experiences.html">Expériences clients</a>
             <a href="offres.html">Nos offres spéciales</a>
         </nav>
@@ -25,8 +27,58 @@
         <section class="content-section">
             <h2>À propos de nous</h2>
             <div class="title-accent"></div>
-            <p>Nous sommes une équipe passionnée d'histoire et d'innovation qui conçoit des voyages temporels sûrs et immersifs. Notre mission : rapprocher le passé, le présent et le futur.</p>
-            <p>Contactez-nous pour discuter d'un projet sur-mesure ou découvrir nos parcours thématiques.</p>
+
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="about-paragraph">
+                        <h3>Une agence née pour révolutionner la manière de voyager</h3>
+                        <ul class="about-list">
+                            <li>Fondée en 2025.</li>
+                            <li>Située au 123 Rue de la Paix, 75001 Paris.</li>
+                            <li>Pôle d'innovation dédié au voyage futuriste.</li>
+                            <li>Allie expertise technologique, créativité et passion pour la découverte.</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-paragraph alt">
+                        <h3>Un concept unique au croisement de la technologie et de l'aventure</h3>
+                        <ul class="about-list">
+                            <li>Concept : expéditions temporelles encadrées, au-delà des destinations classiques.</li>
+                            <li>Utilisation de technologies avancées de stabilisation temporelle.</li>
+                            <li>Permet d'observer innovations, sociétés et paysages du futur.</li>
+                            <li>Expérience immersive avec un encadrement et une sécurité optimales.</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-paragraph center">
+                        <h3>Un accompagnement humain au cœur de l'expérience</h3>
+                        <ul class="about-list">
+                            <li>Le trio d'experts spécialisé : Ahmed Ziat, Jordan Bongo-Luemba, Dylan Sundari</li>
+                            <li>Préparation complète avant le départ et assistance pendant l'expédition.</li>
+                            <li>Gestion des imprévus et accompagnement personnalisé pour chaque voyageur.</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-paragraph center vision">
+                        <h3>Notre vision</h3>
+                        <ul class="about-list">
+                            <li>Siège parisien et centre de recherche dédiés à la sécurité et aux protocoles temporels.</li>
+                            <li>Contrôles techniques complets pour chaque mission, de l'ouverture du portail au retour.</li>
+                            <li>Engagement pour un tourisme responsable et respectueux des environnements visités.</li>
+                            <li>Ambition : continuer d'améliorer nos technologies et rester à la pointe de l'innovation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="facts" aria-label="Informations factuelles">
+                        <div class="fact"><strong>Fondation</strong><span>2025</span></div>
+                        <div class="fact"><strong>Directeur</strong><span>Ahmed Ziat</span></div>
+                        <div class="fact"><strong>Adresse</strong><span>123 Rue de la Paix, 75001 Paris</span></div>
+                        <div class="fact"><strong>Engagements</strong><span>Innovation • Rigueur • Responsabilité</span></div>
+                    </div>
+                </div>
+
+                <div class="about-hero" aria-hidden="true" role="img" aria-label="Visuel de l'agence"></div>
+            </div>
         </section>
     </main>
 
@@ -45,13 +97,6 @@
         <div class="footer-bottom"><p>&copy; 2025 Travel Rycks Time - Tous droits réservés</p></div>
     </footer>
 
-    <script>
-    (function(){
-        const header = document.querySelector('header');
-        function onScrollHeader(){ if(window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled'); }
-        window.addEventListener('scroll', onScrollHeader, { passive: true }); onScrollHeader();
-    })();
-    </script>
-
+    <script src="../js/page3.js"></script>
 </body>
 </html>
